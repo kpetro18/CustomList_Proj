@@ -207,6 +207,40 @@ namespace CustomListTests
             Assert.AreEqual(actualValue, expectedValue);
         }
 
+        [TestMethod]
+        public void Remove_OutOfBoundsIndex()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = 3;
+
+            //act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Remove(list[5]);
+            int actualValue = list.Count;
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+
+        }
+
+        [TestMethod]
+        public void Remove_One_WhenListHasMuplitple()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = 1;
+
+            //act
+            list.Add(1);
+            list.Add(2);
+            list.Add(1);
+            list.Remove(list[0]);
+            int actualValue = list[1];
+        }
+
         //**************************TOSTRING METHOD TESTS********************
 
         [TestMethod]
