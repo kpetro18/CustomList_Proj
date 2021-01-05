@@ -13,21 +13,36 @@ namespace CustomList
         public int Count; 
         T[] myList;
         public int capacity;
-        public bool isFull;
 
         //construtor (spawner)
         public CustomList()
         {
+            Count = 0;
             capacity = 4;
-            isFull = false;
             myList = new T[capacity];
         }
 
         public void Add(T item)
         {
+            if (Count == capacity)
+            {
+                DoubleArraySize();
+            }
+
+            myList[Count] = item;
+            Count++;
 
         }
 
+        public void DoubleArraySize()
+        {
+            T[] temporaryList = new T[capacity * 2];
+            for (int i = 0; i <= Count; i++)
+            {
+                temporaryList[i] = myList[i];
+            }
+            myList = temporaryList;
+        }
         public void Remove()
         {
 

@@ -125,11 +125,11 @@ namespace CustomListTests
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            bool expectedValue = false;
+            int expectedValue != 1;
 
             //act
             list.Add(1);
-            bool actualValue = list.isFull;
+            int actualValue = list.Count;
 
             //assert
             Assert.AreEqual(actualValue, expectedValue);
@@ -140,18 +140,27 @@ namespace CustomListTests
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            bool expectedValue = true;
+            int expectedValue = list.capacity;
 
             //act
             list.Add(1);
             list.Add(2);
             list.Add(3);
             list.Add(4);
-            bool actualValue = list.isFull;
+            int actualValue = list.Count;
 
             //assert
             Assert.AreEqual(actualValue, expectedValue);
         }
+
+        //**************************REMOVE() METHOD TESTS********************
+
+        [TestMethod]
+        public void Remove_Int()
+        {
+
+        }
+
     }
 }
 //resizes when needed
