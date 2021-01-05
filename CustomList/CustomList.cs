@@ -44,12 +44,12 @@ namespace CustomList
             myList = temporaryList;
         }
 
-        public void Remove()
+        public void Remove(T item)
         {
 
         }
 
-        public void ToString()
+        public void ToString(T item)
         {
 
         }

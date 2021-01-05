@@ -145,7 +145,7 @@ namespace CustomListTests
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            int expectedValue = list.Count;
+            int expectedValue = 0;
 
             //act
             list.Add(1);
@@ -160,12 +160,12 @@ namespace CustomListTests
         public void Remove_String()
         {
             //arrange
-            CustomList<int> list = new CustomList<int>();
-            int expectedValue = list.Count;
+            CustomList<string> list = new CustomList<string>();
+            int expectedValue = 0;
 
             //act
             list.Add("one");
-            list.Remove(list[1]);
+            list.Remove(list[0]);
             int actualValue = list.Count;
 
             //assert
@@ -182,7 +182,7 @@ namespace CustomListTests
             //act
             list.Add(1);
             list.Add(2);
-            list.Remove(list[1]);
+            list.Remove(list[0]);
             int actualValue = list.Count;
 
             //assert
@@ -209,6 +209,44 @@ namespace CustomListTests
 
         //**************************TOSTRING METHOD TESTS********************
 
+        [TestMethod]
+        public void ToString_ConvertInt()
+        {
+            CustomList<int> list = new CustomList<int>();
+            string expectedValue = "1";
+
+            //act
+            list.Add(1);
+            list.ToString(list[0]);
+            string actualValue = list[0];
+        }
+
+        [TestMethod]
+        public void ToString_ConvertDouble()
+        {
+            CustomList<int> list = new CustomList<int>();
+            string expectedValue = "1";
+
+            //act
+            list.Add(1);
+            list.ToString(list[0]);
+            string actualValue = list[0];
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
+
+        [TestMethod]
+        public void ToString_ConvertBool()
+        {
+            CustomList<bool> list = new CustomList<bool>();
+            string expectedValue = "true";
+
+            //act
+            list.Add(true);
+            list.ToString(list[0]);
+            string actualValue = list[0];
+        }
     }
 }
 
