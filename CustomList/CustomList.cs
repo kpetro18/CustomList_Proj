@@ -43,10 +43,15 @@ namespace CustomList
             }
             myList = temporaryList;
         }
+
         public void Remove()
         {
 
         }
 
+        public void ToString()
+        {
+
+        }
     }
 }

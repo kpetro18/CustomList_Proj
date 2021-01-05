@@ -121,21 +121,6 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void Add_ListIsNotFull()
-        {
-            //arrange
-            CustomList<int> list = new CustomList<int>();
-            int expectedValue != 1;
-
-            //act
-            list.Add(1);
-            int actualValue = list.Count;
-
-            //assert
-            Assert.AreEqual(actualValue, expectedValue);
-        }
-
-        [TestMethod]
         public void Add_ListIsFull()
         {
             //arrange
@@ -158,15 +143,75 @@ namespace CustomListTests
         [TestMethod]
         public void Remove_Int()
         {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = list.Count;
 
+            //act
+            list.Add(1);
+            list.Remove(list[0]);
+            int actualValue = list.Count;
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
         }
+
+        [TestMethod]
+        public void Remove_String()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = list.Count;
+
+            //act
+            list.Add("one");
+            list.Remove(list[1]);
+            int actualValue = list.Count;
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
+
+        [TestMethod]
+        public void Remove_CountDecreases()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = 1;
+
+            //act
+            list.Add(1);
+            list.Add(2);
+            list.Remove(list[1]);
+            int actualValue = list.Count;
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
+
+        [TestMethod]
+        public void Remove_IndexZero_ItemsShiftDown()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            int expectedValue = 3;
+
+            //act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Remove(list[1]);
+            int actualValue = list[1];
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
+
+        //**************************TOSTRING METHOD TESTS********************
 
     }
 }
-//resizes when needed
-//indexes remain correct after capacity increased
-//count increasing when adding items
-//
+
 
 
 
