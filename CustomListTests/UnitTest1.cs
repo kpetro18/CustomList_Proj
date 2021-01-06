@@ -149,7 +149,7 @@ namespace CustomListTests
 
             //act
             list.Add(1);
-            list.Remove(list[0]);
+            list.Remove(1);
             int actualValue = list.Count;
 
             //assert
@@ -165,7 +165,7 @@ namespace CustomListTests
 
             //act
             list.Add("one");
-            list.Remove(list[0]);
+            list.Remove("one");
             int actualValue = list.Count;
 
             //assert
@@ -218,7 +218,7 @@ namespace CustomListTests
             list.Add(1);
             list.Add(2);
             list.Add(3);
-            list.Remove(list[5]);
+            list.Remove(5);
             int actualValue = list.Count;
 
             //assert
@@ -237,8 +237,12 @@ namespace CustomListTests
             list.Add(1);
             list.Add(2);
             list.Add(1);
-            list.Remove(list[0]);
+            list.Add(1);
+            list.Remove(1);
             int actualValue = list[1];
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
         }
 
         //**************************TOSTRING METHOD TESTS********************
@@ -248,11 +252,13 @@ namespace CustomListTests
         {
             CustomList<int> list = new CustomList<int>();
             string expectedValue = "1";
-
+           
             //act
             list.Add(1);
-            list.ToString(list[0]);
-            string actualValue = list[0];
+            string actualValue = list.ToString();
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
         }
 
         [TestMethod]
@@ -262,7 +268,7 @@ namespace CustomListTests
             string expectedValue = "1";
 
             //act
-            list.Add(1);
+            list.Add(1.05);
             list.ToString(list[0]);
             string actualValue = list[0];
 
@@ -273,18 +279,49 @@ namespace CustomListTests
         [TestMethod]
         public void ToString_ConvertBool()
         {
+            //arrange
             CustomList<bool> list = new CustomList<bool>();
             string expectedValue = "true";
 
             //act
-            list.Add(true);
-            list.ToString(list[0]);
-            string actualValue = list[0];
+            list.Add(true);          
+            string actualValue = list.ToString();
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
+
+        [TestMethod]
+        public void ToString_UsingLargeList()
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>();
+            string expectedValue = "123456";
+
+            //act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            list.Add(6);
+            string actualValue = list.ToString();
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
         }
     }
+
+
+    //maintains proper index
+    //other items indexed do not change
 }
 
 
+//add multiple values to list and string whole thing
+//ToString turns whole list into string
+//remove method searches list then removes first matching item found
+//multiple of same value does it only remove one
 
 
 

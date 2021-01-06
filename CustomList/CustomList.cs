@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList <T>
+    public class CustomList <T> //: IEnumerable
     {
         //member variables (has a)
         //setup for get/set(dont need set) and return to private variable
         public int Count; 
         T[] myList;
         public int capacity;
+                    
+        public T this[int i] 
+        { 
+            get 
+            {
+                return myList[i]; 
+            }
+        }
+
 
         //construtor (spawner)
         public CustomList()
@@ -49,9 +58,17 @@ namespace CustomList
 
         }
 
-        public void ToString(T item)
+        public override string ToString()
         {
 
         }
+
+        //public IEnumerator GetEnumerator()
+        //{
+        //    for (int index = 0; index < Count; index++)
+        //    {
+        //        yield return myList[index];
+        //    }
+        //}
     }
 }
