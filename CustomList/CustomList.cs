@@ -105,7 +105,16 @@ namespace CustomList
             return combinedList;
         }
 
-
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> subtractedList = new CustomList<T>();
+            subtractedList = listOne;
+            foreach (T item in listTwo)
+            {
+                subtractedList.Remove(item);
+            }
+            return subtractedList;
+        }
 
         public IEnumerator GetEnumerator()
         {

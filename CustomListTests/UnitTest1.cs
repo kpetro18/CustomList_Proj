@@ -295,118 +295,126 @@ namespace CustomListTests
             //assert
             Assert.AreEqual(actualValue, expectedValue);
         }
-    }
-    //**************************OVERRIDE + OPERATOR TESTS *********************
 
-    [TestMethod]
-    public void AddOperator_TwoIntLists()
-    {
-        //arrange
-        CustomList<int> intListOne = new CustomList<int>() { 1, 2, 3};
-        CustomList<int> intListTwo = new CustomList<int>() { 4, 5, 6};
-        CustomList<int> combinedList = new CustomList<int>();
-        int expectedValue = 6;
 
-        //act
-        combinedList = intListOne + intListTwo;
-        int actualValue = combinedList.Count;
+        //**************************OVERRIDE + OPERATOR TESTS *********************
 
-        //assert
-        Assert.AreEqual(actualValue, expectedValue);
-    }
+        [TestMethod]
+        public void AddOperator_TwoIntLists()
+        {
+            //arrange
+            CustomList<int> intListOne = new CustomList<int>() { 1, 2, 3};
+            CustomList<int> intListTwo = new CustomList<int>() { 4, 5, 6};
+            CustomList<int> combinedList = new CustomList<int>();
+            int expectedValue = 6;
 
-    [TestMethod]
-    public void AddOperator_TwoIntLists_CheckOrder()
-    {
-        //arrange
-        CustomList<int> intListOne = new CustomList<int>() { 1, 2, 3 };
-        CustomList<int> intListTwo = new CustomList<int>() { 4, 5, 6 };
-        CustomList<int> combinedList = new CustomList<int>();
-        string expectedValue = "123456";
+            //act
+            combinedList = intListOne + intListTwo;
+            int actualValue = combinedList.Count;
 
-        //act
-        combinedList = intListOne + intListTwo;
-        string actualValue = combinedList.ToString();
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
 
-        //assert
-        Assert.AreEqual(actualValue, expectedValue);
-    }
+        [TestMethod]
+        public void AddOperator_TwoIntLists_CheckOrder()
+        {
+            //arrange
+            CustomList<int> intListOne = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> intListTwo = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> combinedList = new CustomList<int>();
+            string expectedValue = "123456";
 
-    [TestMethod]
-    public void AddOperator_TwoStringLists()
-    {
-        //arrange
-        CustomList<string> intListOne = new CustomList<string>() {"one", "two", "three"};
-        CustomList<string> intListTwo = new CustomList<string>() { "four", "five", "six"};
-        CustomList<string> combinedList = new CustomList<string>();
-        int expectedValue = 6;
+            //act
+            combinedList = intListOne + intListTwo;
+            string actualValue = combinedList.ToString();
 
-        //act
-        combinedList = intListOne + intListTwo;
-        int actualValue = combinedList.Count;
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
 
-        //assert
-        Assert.AreEqual(actualValue, expectedValue);
-    }
+        [TestMethod]
+        public void AddOperator_TwoStringLists()
+        {
+            //arrange
+            CustomList<string> intListOne = new CustomList<string>() {"one", "two", "three"};
+            CustomList<string> intListTwo = new CustomList<string>() { "four", "five", "six"};
+            CustomList<string> combinedList = new CustomList<string>();
+            int expectedValue = 6;
 
-    [TestMethod]
-    public void AddOperator_TwoStringLists_CheckOrder()
-    {
-        //arrange
-        CustomList<string> intListOne = new CustomList<string>() { "one", "two", "three" };
-        CustomList<string> intListTwo = new CustomList<string>() { "four", "five", "six" };
-        CustomList<string> combinedList = new CustomList<string>();
-        string expectedValue = "onetwothreefourfivesix";//might have to capitalize first letters
+            //act
+            combinedList = intListOne + intListTwo;
+            int actualValue = combinedList.Count;
 
-        //act
-        combinedList = intListOne + intListTwo;
-        string actualValue = combinedList.ToString();
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
 
-        //assert
-        Assert.AreEqual(actualValue, expectedValue);
-    }
+        [TestMethod]
+        public void AddOperator_TwoStringLists_CheckOrder()
+        {
+            //arrange
+            CustomList<string> intListOne = new CustomList<string>() { "one", "two", "three" };
+            CustomList<string> intListTwo = new CustomList<string>() { "four", "five", "six" };
+            CustomList<string> combinedList = new CustomList<string>();
+            string expectedValue = "onetwothreefourfivesix";//might have to capitalize first letters
 
-    //**********************OVERRIDE - OPERATOR TESTS*********************
+            //act
+            combinedList = intListOne + intListTwo;
+            string actualValue = combinedList.ToString();
 
-    [TestMethod]
-    public void SubtractionOpperator_SameSizeIntLists_RemoveEvens()
-    {
-        //arrange
-        CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4, 5, 6 };
-        CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
-        CustomList<int> expectedValue = new CustomList<int>() { 1, 3, 5 };
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
 
-        //act
-        CustomList<int> actualValue = list - evenList;
+        //**********************OVERRIDE - OPERATOR TESTS*********************
 
-        //assert
-        Assert.AreEqual(actualValue, expectedValue);
-    }
+        [TestMethod]
+        public void SubtractionOpperator_SameSizeIntLists_RemoveEvens() 
+        {
+            //arrange
+            CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4, 5, 6 };
+            CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> expectedValue = new CustomList<int>() { 1, 3, 5 };
 
-    [TestMethod]
-    public void SubtractionOpperator_IntNotInList() //needs better name
-    {
-        CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
-        CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
-        int expectedValue = listOne;
+            //act
+            CustomList<int> actualValue = list - evenList;
 
-        CustomList<int> listThree = listOne - listTwo;
-        int actualValue = listThree;
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
 
-        Assert.AreEqual(actualValue, expectedValue);
-    }
+        [TestMethod]
+        public void SubtractionOpperator_IntNotInList() //needs better name
+        {
+            //arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> expectedValue = listOne;
 
-    [TestMethod]
-    public void SubtractionOpperator_RemoveEntireIntList()
-    {
-        CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
-        CustomList<int> listTwo = new CustomList<int>() { 1, 2, 3 };
-        int expectedValue = 0;
+            //act
+            CustomList<int> listThree = listOne - listTwo;
+            CustomList<int> actualValue = listThree;
 
-        CustomList<int> listThree = listOne - listTwo;
-        int actualValue = listThree.Count;
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
 
-        Assert.AreEqual(actualValue, expectedValue);
+        [TestMethod]
+        public void SubtractionOpperator_RemoveEntireIntList()
+        {
+            //arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> listTwo = new CustomList<int>() { 1, 2, 3 };
+            int expectedValue = 0;
+
+            //act
+            CustomList<int> listThree = listOne - listTwo;
+            int actualValue = listThree.Count;
+
+            //assert
+            Assert.AreEqual(actualValue, expectedValue);
+        }
     }
 
 
