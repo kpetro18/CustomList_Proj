@@ -381,7 +381,8 @@ namespace CustomListTests
             CustomList<int> actualValue = list - evenList;
 
             //assert
-            Assert.AreEqual(actualValue, expectedValue);
+            Assert.AreEqual(actualValue.ToString(), expectedValue.ToString());
+
         }
 
         [TestMethod]

@@ -116,6 +116,49 @@ namespace CustomList
             return subtractedList;
         }
 
+        public CustomList<T> Zip(CustomList<T> listTwo)
+        {
+            CustomList<T> tempList = new CustomList<T>();
+            if (Count == listTwo.Count)
+            {
+                for (int i = 0; i < Count; i++)
+                {
+                    tempList.Add(myList[i]);
+                    tempList.Add(listTwo[i]);
+                }
+                return tempList;
+            }
+
+            else if (Count > listTwo.Count)
+            {
+                for (int i = 0; i < Count; i++)
+                {
+
+                    tempList.Add(myList[i]);
+                    if (listTwo.Count > i)
+                    {
+                        tempList.Add(listTwo[i]);
+
+                    }
+                }
+                return tempList;
+            }
+
+            else if (Count < listTwo.Count)
+            {
+                for (int i = 0; i < listTwo.Count; i++)
+                {
+                    if (Count > i)
+                    {
+                        tempList.Add(myList[i]);
+                    }
+                    tempList.Add(listTwo[i]);
+
+                }
+                return tempList;
+            }
+            return tempList;
+        }
 
         public IEnumerator GetEnumerator()
         {
