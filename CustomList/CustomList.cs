@@ -116,6 +116,7 @@ namespace CustomList
             return subtractedList;
         }
 
+
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
