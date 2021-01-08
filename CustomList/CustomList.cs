@@ -91,6 +91,20 @@ namespace CustomList
             //look into string builder
         }
 
+        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            for (int i = 0; i < listOne.Count; i++)
+            {
+                combinedList.Add(listOne[i]);
+            }
+            for (int i = 0; i < listTwo.Count; i++)
+            {
+                combinedList.Add(listTwo[i]);
+            }
+            return combinedList;
+        }
+
         public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < Count; i++)

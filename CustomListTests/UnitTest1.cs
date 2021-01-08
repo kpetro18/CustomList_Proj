@@ -315,6 +315,7 @@ namespace CustomListTests
         Assert.AreEqual(actualValue, expectedValue);
     }
 
+    [TestMethod]
     public void AddOperator_TwoIntLists_CheckOrder()
     {
         //arrange
@@ -331,6 +332,7 @@ namespace CustomListTests
         Assert.AreEqual(actualValue, expectedValue);
     }
 
+    [TestMethod]
     public void AddOperator_TwoStringLists()
     {
         //arrange
@@ -347,6 +349,7 @@ namespace CustomListTests
         Assert.AreEqual(actualValue, expectedValue);
     }
 
+    [TestMethod]
     public void AddOperator_TwoStringLists_CheckOrder()
     {
         //arrange
@@ -362,6 +365,8 @@ namespace CustomListTests
         //assert
         Assert.AreEqual(actualValue, expectedValue);
     }
+
+    //**********************OVERRIDE - OPERATOR TESTS*********************
 
 
 
