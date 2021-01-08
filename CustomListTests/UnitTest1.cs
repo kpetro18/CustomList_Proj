@@ -91,11 +91,11 @@ namespace CustomListTests
         {
             //arrange
             CustomList<int> list = new CustomList<int>();
-            int expectedValue = 25;
+            int expectedValue = 3;
 
             //act
             list.Add(1);
-            list.Add(25);
+            list.Add(2);
             list.Add(3);
             list.Add(4);
             list.Add(5);
@@ -182,7 +182,7 @@ namespace CustomListTests
             //act
             list.Add(1);
             list.Add(2);
-            list.Remove(list[0]);
+            list.Remove(2);
             int actualValue = list.Count;
 
             //assert
@@ -200,7 +200,7 @@ namespace CustomListTests
             list.Add(1);
             list.Add(2);
             list.Add(3);
-            list.Remove(list[1]);
+            list.Remove(2);
             int actualValue = list[1];
 
             //assert
@@ -262,26 +262,11 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void ToString_ConvertDouble()
-        {
-            CustomList<int> list = new CustomList<int>();
-            string expectedValue = "1";
-
-            //act
-            list.Add(1.05);
-            list.ToString(list[0]);
-            string actualValue = list[0];
-
-            //assert
-            Assert.AreEqual(actualValue, expectedValue);
-        }
-
-        [TestMethod]
         public void ToString_ConvertBool()
         {
             //arrange
             CustomList<bool> list = new CustomList<bool>();
-            string expectedValue = "true";
+            string expectedValue = "True";
 
             //act
             list.Add(true);          
@@ -294,6 +279,7 @@ namespace CustomListTests
         [TestMethod]
         public void ToString_UsingLargeList()
         {
+            CustomList<int> thing = new CustomList<int>() { 1, 2, 3, 4, 5 };
             //arrange
             CustomList<int> list = new CustomList<int>();
             string expectedValue = "123456";
