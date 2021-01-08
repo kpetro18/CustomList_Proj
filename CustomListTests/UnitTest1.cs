@@ -279,7 +279,6 @@ namespace CustomListTests
         [TestMethod]
         public void ToString_UsingLargeList()
         {
-            CustomList<int> thing = new CustomList<int>() { 1, 2, 3, 4, 5 };
             //arrange
             CustomList<int> list = new CustomList<int>();
             string expectedValue = "123456";
@@ -297,17 +296,79 @@ namespace CustomListTests
             Assert.AreEqual(actualValue, expectedValue);
         }
     }
+    //**************************OVERRIDE + OPERATOR TESTS *********************
+
+    [TestMethod]
+    public void AddOperator_TwoIntLists()
+    {
+        //arrange
+        CustomList<int> intListOne = new CustomList<int>() { 1, 2, 3};
+        CustomList<int> intListTwo = new CustomList<int>() { 4, 5, 6};
+        CustomList<int> combinedList = new CustomList<int>();
+        int expectedValue = 6;
+
+        //act
+        combinedList = intListOne + intListTwo;
+        int actualValue = combinedList.Count;
+
+        //assert
+        Assert.AreEqual(actualValue, expectedValue);
+    }
+
+    public void AddOperator_TwoIntLists_CheckOrder()
+    {
+        //arrange
+        CustomList<int> intListOne = new CustomList<int>() { 1, 2, 3 };
+        CustomList<int> intListTwo = new CustomList<int>() { 4, 5, 6 };
+        CustomList<int> combinedList = new CustomList<int>();
+        string expectedValue = "123456";
+
+        //act
+        combinedList = intListOne + intListTwo;
+        string actualValue = combinedList.ToString();
+
+        //assert
+        Assert.AreEqual(actualValue, expectedValue);
+    }
+
+    public void AddOperator_TwoStringLists()
+    {
+        //arrange
+        CustomList<string> intListOne = new CustomList<string>() {"one", "two", "three"};
+        CustomList<string> intListTwo = new CustomList<string>() { "four", "five", "six"};
+        CustomList<string> combinedList = new CustomList<string>();
+        int expectedValue = 6;
+
+        //act
+        combinedList = intListOne + intListTwo;
+        int actualValue = combinedList.Count;
+
+        //assert
+        Assert.AreEqual(actualValue, expectedValue);
+    }
+
+    public void AddOperator_TwoStringLists_CheckOrder()
+    {
+        //arrange
+        CustomList<string> intListOne = new CustomList<string>() { "one", "two", "three" };
+        CustomList<string> intListTwo = new CustomList<string>() { "four", "five", "six" };
+        CustomList<string> combinedList = new CustomList<string>();
+        string expectedValue = "onetwothreefourfivesix";//might have to capitalize first letters
+
+        //act
+        combinedList = intListOne + intListTwo;
+        string actualValue = combinedList.ToString();
+
+        //assert
+        Assert.AreEqual(actualValue, expectedValue);
+    }
 
 
-    //maintains proper index
-    //other items indexed do not change
+
+
 }
 
 
-//add multiple values to list and string whole thing
-//ToString turns whole list into string
-//remove method searches list then removes first matching item found
-//multiple of same value does it only remove one
 
 
 
